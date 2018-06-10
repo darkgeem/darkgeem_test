@@ -11,7 +11,7 @@ def loadimage(path):
 
 ## Fonction qui convertit une image en niveaux de gris
 #  @param inpimage **Objet image** qui sera converti
-def gris(inpimage):
+def gray(inpimage):
 	width, height = inpimage.size	#Obtention de la largeur et de la hauteur de l'image en entrée
 	outimage = Image.new("L", (width, height), "white")	#Création d'une image de sortie vide (blanche, donc pas vraiment vide, mais remplie de 255), en niveaux de gris uniquement (d'où le "L")
 	pixels = outimage.load()	#Création d'une variable contenant la carte des pixels de l'image de sortie 
@@ -31,8 +31,8 @@ def gris(inpimage):
 ## Fonction qui convertit une image en noir et blanc "pûr", si le seuil n'est pas précisé, le définit automatiquement sur la médiane.
 # @param image **Objet image** qui sera converti
 # @param threshold *Optionnel,* le seuil de conversion. Tous les pixels ayant un niveau de gris inférieur à ce seuil seront noirs, sinon, ils seront blancs.
-def noir(image, threshold=0):	
-	inpimage = gris(image)	#Conversion de l'image en niveaux de gris
+def black(image, threshold=0):
+	inpimage = gray(image)	#Conversion de l'image en niveaux de gris
 	width, height = inpimage.size	#Obtention de la largeur et de la hauteur de l'image en entrée
 	outimage = Image.new("1", (width, height), "white")	#Création d'une image de sortie vide (blanche, donc pas vraiment vide, mais remplie de 255), en noir et blanc "pûr" uniquement (d'où le "1")
 	pixels = outimage.load()	#Création d'une variable contenant la carte des pixels de l'image de sortie 
